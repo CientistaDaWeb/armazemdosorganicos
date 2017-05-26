@@ -1,0 +1,31 @@
+.input{
+    margin-bottom: 5px;
+}
+label{
+    display: inline-block;
+    vertical-align: top;
+}
+dd input[type="text"], dd textarea{
+    border: 0;
+    padding: 5px;
+    margin-top: 3px;
+    background: #FBD0BA;
+    width: 400px;
+}
+label.required{
+    font-weight: bold;
+}
+dt label{
+    margin: 10px 0 5px;
+    display: inline-block;
+}
+dd #enviar{
+    background: #4c3549;
+    border: none;
+    text-align: center;
+    padding: 5px;
+    width: 160px;
+    margin-left: 247px;
+    color: #FFF;
+
+}

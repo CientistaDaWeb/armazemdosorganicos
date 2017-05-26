@@ -1,0 +1,102 @@
+<?php
+$configs = Zend_Registry::get('configs');
+echo $this->doctype();
+?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+    <head>
+        <title>Armazém dos Orgânicos</title>
+        <?php
+        /* Adiciona as Meta Tags */
+        $this->headMeta()
+        ->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8')
+        ->appendName('author', 'Fernando Henrique - Webscientist')
+        ->appendName('robots', 'index,follow')
+        ->appendName('googlebot', 'index,follow')
+        ->appendName('google', 'notranslate')
+        ->appendName('Content-Language', 'pt-br')
+        ->appendName('reply-to', 'contato@armazemdosorganicos.com.br')
+        ->appendName('google-site-verification', $configs->google->verification)
+        ;
+        echo $this->headMeta();
+        /* Adiciona as Meta Tags */
+        $this->headLink()
+        ->prependStylesheet('/css/style.css')
+        ->headLink(array('rel' => 'favicon', 'href' => '/css/images/favicon.ico'), 'PREPEND');
+        echo $this->headLink();
+
+        echo $this->jQuery()->setVersion('1.4.2')->enable();
+        $this->headScript()
+        //->appendFile('http://imasters.uol.com.br/crossbrowser/fonte.js')
+        ->appendFile('/js/jquery.pngFix.pack.js')
+        ->appendFile('/js/jquery.cycle.lite.min.js')
+        ->appendFile('/js/jquery.easing.1.3.js')
+        ->appendFile('/js/script.js')
+        ;
+        echo $this->headScript();
+        ?>
+    </head>
+    <body>
+        <div id="root">
+            <div id="header">
+                <div id="logo">
+                    Armazém dos Orgânicos
+                </div>
+                <div id="outdoor">
+                    <img src="/images/topos/1.jpg" />
+                    <img src="/images/topos/2.jpg" />
+                    <img src="/images/topos/3.jpg" />
+                    <img src="/images/topos/4.jpg" />
+                    <img src="/images/topos/5.jpg" />
+                    <img src="/images/topos/6.jpg" />
+                    <img src="/images/topos/7.jpg" />
+                    <img src="/images/topos/8.jpg" />
+                </div>
+                <div id="chamada">
+                    A Terra em <b>harmonia</b><br />com o corpo
+                </div>
+                <div id="menu">
+                    <ul>
+                        <li><a href="/" title="Home">Home</a></li>
+                        <li><a href="/empresa" title="Empresa">Empresa</a></li>
+                        <li><a href="/produtos" title="Produtos">Produtos</a></li>
+                        <li><a href="/receitas" title="Receitas">Receitas</a></li>
+                        <li><a href="/noticias" title="Notícias">Notícias</a></li>
+                        <li><a href="/midias" title="Mídia">Mídia</a></li>
+                        <li><a href="/organicos" title="Orgânicos">Orgânicos</a></li>
+                        <li><a href="/fale-conosco" title="Fale Conosco">Fale Conosco</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="content">
+                <?php echo $this->layout()->content; ?>
+                <?php // echo $this->FlashMessenger(); ?>
+            </div>
+        </div>
+        <div id="fog">
+            <div id="footer">
+                <address>Rua Benjamin Constant Sala 224 (em frente a UERGS) - Centro - Bento Gonçalves &bull; Fone: <span>(54) 3052.0049</span></address>
+            </div>
+        </div>
+    </body>
+    <?php
+    /* Script que deve ir em todas as páginas mas que requer php */
+    $this->headScript()->captureStart();
+    ?>
+    $(document).ready(function(){
+    $(document).pngFix();
+    });
+    <?php if (!empty($configs->analytics->ua)) {
+    ?>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '<?php echo $configs->analytics->ua; ?>']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    <?php
+    }
+    $this->headScript()->captureEnd();
+    ?>
+</html>

@@ -1,0 +1,6 @@
+<h2>Notícias</h2>
+<ul id="listaNoticias">
+<?php foreach($this->noticias AS $noticia){ ?>
+    <li><a href="noticia/<?php echo $noticia['slug']; ?>" title="<?php echo $noticia['titulo']; ?>"><?php echo $noticia['titulo']; ?></a></li>
+<? } ?>
+</ul>

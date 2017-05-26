@@ -1,0 +1,12 @@
+<h2><?php echo $this->noticia['titulo']; ?></h2>
+<div class="data">
+    <?php
+    //$data = new Zend_Date($this->noticia['data']);
+    //echo $data->toString('dd/MM/YY');
+    ?>
+</div>
+<?php echo $this->noticia['descricao']; ?>
+<?php if (!empty($this->noticia['fonte'])) {
+?>
+        <div class="fonte">Fonte: <?php echo $this->noticia['fonte']; ?></div>
+<?php } ?>

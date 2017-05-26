@@ -1,0 +1,7 @@
+<h2>Categorias</h2>
+<ul id="categoriaProdutos">
+    <?php foreach ($this->categorias AS $categoria) {
+ ?>
+        <li><img src="/images/categorias/<?php echo $categoria['imagem']; ?>"/><?php echo $categoria['categoria']; ?></li>
+<?php } ?>
+</ul>
